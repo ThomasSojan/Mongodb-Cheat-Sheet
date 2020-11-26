@@ -1,0 +1,133 @@
+Terminal Commands:
+
+
+
+
+"sudo service mongod start"
+//start mongo server.
+
+
+"sudo service mongod stop"
+//stop mongo server.
+
+
+"sudo service mongod status"
+//mongo server status.
+
+
+"mongo"
+// Run mongodb shell.
+
+"exit"
+//exit mongodb shell.
+
+
+
+Mongodb Shell:
+
+
+
+
+db
+//show current database.
+
+show dbs
+//list all local databases.
+
+use mydb
+//navigate to database mydb or create new database mydb if not exist.
+
+db.dropDatabase()
+//delete the current database.
+
+show collections
+//shows collections belonging to that database.
+
+
+
+
+Mongodb Operations:
+
+
+
+
+db.createCollection("userDetails")
+//create new collection naming user details.
+
+db.userDetails.drop()
+// delete the entire collections naming userDetails.
+
+
+CREATE
+
+db.userDetails.insert({"name":"Thomas T Sojan",
+    "place" : "Thodupuzha"})
+// insert datas into the collection userDetails.
+
+db.userDetails.insertOne({"name":"tms",
+    "place" : "tdpz"})
+// insert one entry.
+
+db.userDetails.insertMany([{"name":"tms",
+    "place" : "tdpz"},{name : "grgy" , place : "ktm"}])
+//insert more then one entries    
+
+
+READ
+
+
+db.userDetails.find()
+//display documents in that collection userDetails.
+
+db.userDetails.find().pretty()
+//display documents pretty.
+
+db.userDetails.find({place:"ktm"}).pretty()
+//find based on condition
+
+db.userDetails.find({age:{$gt:20}}).pretty()
+//find documents based on condition where age greater than 20
+
+db.userDetails.find( {place:"ktm"} , {_id:0,name:1,place:1}).pretty()
+//find selected attributes of documents
+
+
+
+UPDATE
+
+
+db.userDetails.update({name:"grgy"},{$set{name:"Georgy"}})
+//update value of the first matched documents
+
+db.userDetails.updateOne({name:"grgy"},{$set{name:"Georgy"}})
+//update value of the first matched documents
+
+db.userDetails.updateMany({name:"grgy"},{$set{name:"Georgy"}})
+//update value of the all matched documents
+
+
+DELETE
+
+
+
+db.userDetails.remove({})
+//remove all documents of that collection
+
+db.userDetails.remove({name:"Thomas"})
+//remove all documents named "Thomas"
+
+db.userDetails.remove({name:"Thomas"},1)
+// remove one matched document
+
+
+
+
+
+
+
+
+
+
+
+
+
